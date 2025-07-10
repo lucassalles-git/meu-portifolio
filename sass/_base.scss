@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Fira+Code:wght@300..700&display=swap");
+
+// Brand Colours
+$brand-color: #42b883;
+
+// Dark Scale
+$dark-10: #0b0b0b;
+$dark-20: #101010;
+$dark-30: #1f1f1f;
+$dark-40: #ffffff;
+
+//Typography
+$archivo: "Archivo", sans-serif;
+$fira-code: "Fira Code", monospace;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $dark-10;
+  font-family: $archivo;
+}
+
+/*Cabeçalho*/
+header {
+  padding: 2rem 1rem;
+  border-bottom: 2px solid $dark-30;
+  background-color: $dark-10;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+  p {
+    color: $brand-color;
+    font-family: $fira-code;
+    font-weight: 400;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+
+    span {
+      height: 3px;
+      background: $dark-40;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+  }
+
+  /*Menu oculto no mobile*/
+  .menu {
+    padding: 2rem;
+    background-color: $dark-20;
+    border-radius: 0 0 0 5px;
+
+    /*Animação ao abrir o menu*/
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    pointer-events: none;
+
+    position: absolute;
+    top: 5.5rem;
+    right: 0;
+    z-index: 10;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+
+      list-style: none;
+    }
+
+    li {
+      a {
+        text-decoration: none;
+        color: $dark-40;
+        font-weight: 500;
+        font-size: clamp(1rem, 1vw, 1.125rem);
+      }
+    }
+  }
+
+  .menu.aberto {
+    transform: scaleY(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /*animação do X no botão*/
+  .menu-toggle.ativo span:nth-child(1) {
+    transform: rotate(30deg) translate(1px, 1px);
+    background: $brand-color;
+  }
+
+  .menu-toggle.ativo span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.ativo span:nth-child(3) {
+    transform: rotate(-30deg) translate(1px, -1px);
+  }
+}
+
+main {
+  padding: 2rem 2rem;
+
+  .apresentacao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    p {
+      font-size: clamp(1rem, 2.61vw, 2rem);
+      // font-size: 2rem;
+      color: $dark-40;
+    }
+
+    .saudacao {
+      font-weight: 500;
+    }
+
+    h1 {
+      margin: 0.75rem 0 2rem 0;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 400;
+      color: $brand-color;
+    }
+
+    button {
+      margin-top: 3rem;
+      padding: 0.625rem 2.5rem;
+      border: none;
+      border-radius: 0.25rem;
+      background-color: $brand-color;
+
+      font-family: $archivo;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 500;
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #97edaa;
+    }
+
+    .banner {
+      img {
+        width: clamp(300px, 27vw, 31.25rem);
+      }
+    }
+  }
+
+  .sobre {
+    color: $dark-40;
+
+    h2 {
+      text-align: center;
+      font-size: clamp(1rem, 2.7vw, 2rem);
+      color: $brand-color;
+    }
+
+    .descricao {
+      margin: 3rem 0 4rem 0;
+      text-align: justify;
+      line-height: 160%;
+      font-size: clamp(1rem, 2vw, 1.5rem);
+    }
+  }
+
+  .contato {
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2rem;
+
+
+    div {
+      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      
+    }
+
+    span {
+      font-weight: 500;
+      font-size: clamp(1rem, 2.4vw, 1.25rem);
+    }
+
+    p {
+      font-size: clamp(0.80rem, 2vw, 1.125rem);
+    }
+
+    img {
+      // 2rem
+      width: clamp(1.5rem, 3vw, 2rem);
+    }
+  }
+}

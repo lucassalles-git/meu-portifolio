@@ -1,0 +1,61 @@
+@media (min-width: 48rem) {
+  header {
+    justify-content: space-around;
+
+    .menu-toggle {
+      display: none; /* Esconde o botão */
+    }
+
+    .menu {
+      transform: none !important; // Remove o scaleY
+      opacity: 1 !important; // Garante visibilidade
+      pointer-events: auto;
+      display: block;
+      position: static;
+      background-color: transparent;
+      padding: 0;
+
+      ul {
+        flex-direction: row;
+        gap: clamp( 1.5rem, 3vw , 3.5rem);
+      }
+
+      li {
+        a:hover {
+          color: $brand-color;
+        }
+      }
+    }
+  }
+
+  main {
+    .apresentacao {
+      flex-direction: row;
+      justify-content: space-around;
+      text-align: start;
+
+      .banner {
+        display: block;
+      }
+
+      
+    }
+
+    .sobre {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .descricao {
+        width: 60%;
+        text-align: center;
+      }
+    }
+
+    .contato {
+      grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    }
+  }
+}
